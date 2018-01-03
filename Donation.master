@@ -1,0 +1,100 @@
+﻿<%@ Master Language="VB" CodeFile="Donation.master.vb" Inherits="Donation" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .menu {
+            width: 100px;
+            background-color: #990003;
+            vertical-align:top;
+        }
+
+        .space {
+            width: 10px;
+        }
+
+        .content {
+            width: 680px
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:Image ID="imgBanner" runat="server" ImageUrl="~/images/logo3.gif" />
+            <br />
+            <table class="auto-style1">
+                <tr>
+                    <td class="menu" rowspan="2">
+                        <asp:Menu
+                            ID="mnuAdmin"
+                            runat="server"
+                            DynamicMenuItemStyle-BackColor="#990003"
+                            ForeColor="White"
+                            Visible="false" DataSourceID="xdsAdmin">
+                            <DataBindings>
+                                <asp:MenuItemBinding
+                                    DataMember="siteMapNode"
+                                    NavigateUrlField="url"
+                                    TextField="title"
+                                    ToolTipField="description"></asp:MenuItemBinding>
+                            </DataBindings>
+
+                        </asp:Menu>
+                        <asp:XmlDataSource
+                            runat="server"
+                            ID="xdsAdmin"
+                            DataFile="~/XMLAdmin.xml"
+                            XPath="/*/*/*"></asp:XmlDataSource>
+                        <asp:Menu
+                            ID="mnuUser"
+                            runat="server"
+                            DynamicMenuItemStyle-BackColor="#990003"
+                            ForeColor="White"
+                            Visible="false" DataSourceID="xdsUser">
+                            <DataBindings>
+                                <asp:MenuItemBinding
+                                    DataMember="siteMapNode"
+                                    NavigateUrlField="url"
+                                    TextField="title"
+                                    ToolTipField="description"></asp:MenuItemBinding>
+                            </DataBindings>
+
+                        </asp:Menu>
+                        <asp:XmlDataSource
+                            runat="server"
+                            ID="xdsUser"
+                            DataFile="~/XMLUser.xml"
+                            XPath="/*/*/*"></asp:XmlDataSource>
+                        <asp:LinkButton ID="btnLogout" runat="server" SkinID="menulink">Logout</asp:LinkButton>
+                    </td>
+                    <td class="space">&nbsp;</td>
+                    <td class="content">
+                        <asp:ContentPlaceHolder ID="cphMain" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Label ID="lblMessage" runat="server" Text="" /><br />
+                        <asp:Label ID="lblStatus" runat="server" Text="" />
+                    </td>
+                </tr>
+            </table>
+
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

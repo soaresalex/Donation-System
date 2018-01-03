@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Users" description="User Functions" url="">
+    <siteMapNode title="Gift History" description="Gift History" url="gift_history.aspx" />
+    <siteMapNode title="Give A Gift" description="Give a Gift" url="give_gift.aspx" />
+  </siteMapNode>
+</siteMap>
